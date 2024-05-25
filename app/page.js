@@ -31,7 +31,7 @@ export default function Home() {
 
   const { address, isConnected, chain } = useAccount();
   const { switchChain } = useSwitchChain();
-  const desiredNetworkId = 11155111;
+  const desiredNetworkId = 1;
 
   const handleSwitchChain = () => {
     switchChain({ chainId: desiredNetworkId });

@@ -3,7 +3,7 @@ import '@rainbow-me/rainbowkit/styles.css';
 import { NextUIProvider } from '@nextui-org/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { WagmiProvider } from 'wagmi';
-import { mainnet, sepolia } from 'wagmi/chains';
+import { mainnet } from 'wagmi/chains';
 import { getDefaultConfig, RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { cookieStorage, createStorage, http, fallback} from 'wagmi'
 import { useState, useEffect } from 'react'
@@ -12,15 +12,11 @@ import { useState, useEffect } from 'react'
 export const config = getDefaultConfig({
   appName: 'Red-vs-Blue',
   projectId: '71bffa11dcde4c9ad42c56c6c9e29bab',
-  chains: [ mainnet, sepolia ],
+  chains: [ mainnet ],
   storage: createStorage({
     storage: cookieStorage
   }),
   transports: {
-    [sepolia.id]: fallback([ 
-      http(), 
-    ]),
-
     [mainnet.id]: fallback([ 
       http(), 
       http("https://eth-mainnet.g.alchemy.com/v2/z8CNjlR0rdV3pgc3L3yn8m5r9qW3qT2t"),
